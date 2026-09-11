@@ -1,0 +1,92 @@
+{
+    "project": "Crop Recommendation + Yield Prediction + Selling Price Prediction",
+    "trained_at": "2026-09-11 15:09:17",
+    "models": {
+        "recommendation": {
+            "model": "Random Forest Classifier",
+            "task": "Classification",
+            "accuracy": 99.75,
+            "precision": 99.75,
+            "recall": 99.75,
+            "f1_score": 99.75,
+            "features": [
+                "N",
+                "P",
+                "K",
+                "temperature",
+                "humidity",
+                "ph",
+                "rainfall"
+            ],
+            "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 15,
+                "random_state": 42,
+                "n_jobs": -1
+            },
+            "dataset": {
+                "rows": 19690,
+                "columns": 8,
+                "missing_values": 0,
+                "duplicate_rows": 0
+            }
+        },
+        "yield": {
+            "model": "Random Forest Regressor",
+            "task": "Regression",
+            "r2": 97.99,
+            "mae": 9.262,
+            "rmse": 126.9691,
+            "features": [
+                "Crop",
+                "Season",
+                "State",
+                "Area",
+                "Annual_Rainfall",
+                "Fertilizer",
+                "Pesticide"
+            ],
+            "encoded_features": 92,
+            "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 15,
+                "random_state": 42,
+                "n_jobs": -1
+            },
+            "dataset": {
+                "rows": 19689,
+                "columns": 8,
+                "missing_values": 0,
+                "duplicate_rows": 0
+            }
+        },
+        "selling": {
+            "model": "Random Forest Regressor",
+            "task": "Regression",
+            "target": "Price per kg (₹)",
+            "r2": -1.86,
+            "mae": 4.9969,
+            "rmse": 5.7879,
+            "features": [
+                "Crop",
+                "State",
+                "Season",
+                "Quantity (kg)"
+            ],
+            "encoded_features": 10,
+            "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 15,
+                "random_state": 42,
+                "n_jobs": -1
+            },
+            "dataset": {
+                "rows": 20000,
+                "columns": 6,
+                "missing_values": 0,
+                "duplicate_rows": 0
+            }
+        }
+    },
+    "overall_combined_score": 65.29
+}
